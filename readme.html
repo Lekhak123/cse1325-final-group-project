@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Movie Ticketing System</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="movie-ticketing-system">Movie Ticketing System</h1>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#movie-ticketing-system">Movie Ticketing System</a>
+<ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#current-systems-literature-review">Current Systems (Literature Review)</a></li>
+<li><a href="#proposed-model-diagram-uml">Proposed Model Diagram UML</a></li>
+<li><a href="#project-specification-function-modules">Project Specification/ Function Modules</a></li>
+<li><a href="#project-input-output-specification">Project (Input/ Output) Specification</a></li>
+<li><a href="#screen-design">Screen Design</a></li>
+<li><a href="#design-and-codes">Design and Codes</a></li>
+<li><a href="#program-testing">Program Testing</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#reference">Reference</a></li>
+<li><a href="#appendix">Appendix</a>
+<ul>
+<li><a href="#a-code-listings">A. Code Listings</a></li>
+<li><a href="#b-test-logs">B. Test Logs</a></li>
+<li><a href="#c-test-cases">C. Test Cases</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>The Movie Ticketing System is a console-based application developed in Java. It allows users to select a theater, choose a movie, book a seat, and confirm their booking. The system also supports loading initial data from a text file.</p>
+<h2 id="current-systems-literature-review">Current Systems (Literature Review)</h2>
+<p>Traditional movie ticketing systems often involve manual processes, such as purchasing tickets at a counter. Modern systems have moved online, allowing users to book tickets through a website or mobile app. However, these systems can be complex and may not provide a straightforward user experience.</p>
+<h2 id="proposed-model-diagram-uml">Proposed Model Diagram UML</h2>
+<p>TODO: Create a UML diagram</p>
+<h2 id="project-specification-function-modules">Project Specification/ Function Modules</h2>
+<p>The project is divided into several classes, each representing a different entity in the system:</p>
+<ul>
+<li><code>Main</code>: The main class that runs the application.</li>
+<li><code>Theater</code>: Represents a theater, which has a list of movies and seats.</li>
+<li><code>Movie</code>: Represents a movie, which has a title, genre, duration, price, and time.</li>
+<li><code>Seat</code>: Represents a seat in a theater.</li>
+<li><code>Booking</code>: Represents a booking, which includes a theater, movie, and seat.</li>
+<li><code>User</code>: Represents a user of the system.</li>
+</ul>
+<h2 id="project-input-output-specification">Project (Input/ Output) Specification</h2>
+<p>The system takes user input from the console to navigate through the menu options and make selections. The output is displayed on the console, showing the available options and the details of the user's booking.</p>
+<h2 id="screen-design">Screen Design</h2>
+<p>The system is console-based, so the &quot;screen&quot; is the console output. The main screen displays a menu with options to select a theater, select a movie, book a seat, confirm booking, and exit. When a user selects an option, the relevant information is displayed on the console.</p>
+<h2 id="design-and-codes">Design and Codes</h2>
+<p>The design of the system is object-oriented, with each class encapsulating the data and behavior of a different entity in the system. The code for each class is located in the <code>movieticketing</code> package.</p>
+<h2 id="program-testing">Program Testing</h2>
+<p>We tested this program by running different unit tests and handling edge cases.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The Movie Ticketing System is a simple, console-based application that allows users to book movie tickets. It demonstrates the use of object-oriented programming and file I/O in Java.</p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li>Oracle. (n.d.). The Java™ Tutorials. Retrieved from <a href="https://docs.oracle.com/javase/tutorial/">https://docs.oracle.com/javase/tutorial/</a></li>
+</ul>
+<h2 id="appendix">Appendix</h2>
+<h3 id="a-code-listings">A. Code Listings</h3>
+<p>The code for the project is divided into several classes, each representing a different entity in the system. Here are the main classes and a brief description of each:</p>
+<ul>
+<li><a href="movieticketing/Main.java"><code>Main</code></a>: The main class that runs the application.</li>
+<li><a href="movieticketing/Theater.java"><code>Theater</code></a>: Represents a theater, which has a list of movies and seats.</li>
+<li><a href="movieticketing/Movie.java"><code>Movie</code></a>: Represents a movie, which has a title, genre, duration, price, and time.</li>
+<li><a href="movieticketing/Seat.java"><code>Seat</code></a>: Represents a seat in a theater.</li>
+<li><a href="movieticketing/Booking.java"><code>Booking</code></a>: Represents a booking, which includes a theater, movie, and seat.</li>
+<li><a href="movieticketing/User.java"><code>User</code></a>: Represents a user of the system.</li>
+</ul>
+<p>The code for each class is located in the <code>movieticketing</code> package.</p>
+<h3 id="b-test-logs">B. Test Logs</h3>
+<p>Test logs are records of the test cases that have been executed and their results. They include information about the test case, the expected result, the actual result, and whether the test passed or failed. Here's an example of a test log:</p>
+<table>
+<thead>
+<tr>
+<th>Test Case ID</th>
+<th>Expected Result</th>
+<th>Actual Result</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TC1</td>
+<td>Pass</td>
+<td>Pass</td>
+<td>Pass</td>
+</tr>
+</tbody>
+</table>
+<h3 id="c-test-cases">C. Test Cases</h3>
+<p>Test cases are specific scenarios used to test the functionality of the system. They include the steps to perform, the expected result, and the actual result. Here's an example of a test case:</p>
+<table>
+<thead>
+<tr>
+<th>Test Case ID</th>
+<th>Test Scenario</th>
+<th>Test Steps</th>
+<th>Expected Result</th>
+<th>Actual Result</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TC1</td>
+<td>Book a movie ticket</td>
+<td>1. Run the application.<br>2. Select a theater.<br>3. Select a movie.<br>4. Book a seat.<br>5. Confirm booking.</td>
+<td>The booking is successful, and the booking details are displayed correctly.</td>
+<td>The booking is successful, and the booking details are displayed correctly.</td>
+<td>Pass</td>
+</tr>
+</tbody>
+</table>
+
+            
+            
+        </body>
+        </html>

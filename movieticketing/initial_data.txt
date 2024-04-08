@@ -1,0 +1,29 @@
+Regal Cinemas
+Avengers: Endgame,Action,181,15.0,13:00
+1,1,false
+1,2,false
+1,3,false
+Inception,Sci-Fi,148,12.0,15:30
+2,1,false
+2,2,false
+2,3,false
+
+AMC Theatres
+The Dark Knight,Drama,152,14.0,14:00
+1,1,false
+1,2,false
+1,3,false
+Interstellar,Sci-Fi,169,13.0,16:00
+2,1,false
+2,2,false
+2,3,false
+
+Cinemark Theatres
+The Godfather,Drama,175,16.0,12:30
+1,1,false
+1,2,false
+1,3,false
+Pulp Fiction,Crime,154,14.0,15:00
+2,1,false
+2,2,false
+2,3,false
