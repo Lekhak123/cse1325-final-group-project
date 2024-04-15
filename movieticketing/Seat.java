@@ -5,18 +5,16 @@ public class Seat {
     private int number;
     private boolean isBooked;
 
-    // Constructor
     public Seat(int number, int row, boolean booked) {
         this.number = number;
         this.row = row;
         this.isBooked = booked;
     }
-    // Getters
-    public int getRow() {
+    public int get_row() {
         return row;
     }
 
-    public int getNumber() {
+    public int get_number() {
         return number;
     }
 
@@ -24,16 +22,15 @@ public class Seat {
         return isBooked;
     }
 
-    // Setters
-    public void setRow(int row) {
+    public void set_row(int row) {
         this.row = row;
     }
 
-    public void setNumber(int number) {
+    public void set_number(int number) {
         this.number = number;
     }
 
-    public void setBooked(boolean isBooked) {
+    public void set_booked(boolean isBooked) {
         this.isBooked = isBooked;
     }
 }

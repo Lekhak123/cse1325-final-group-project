@@ -11,10 +11,10 @@ public class Booking {
         this.seat = seat;
     }
 
-    public void printBookingDetails() {
-        System.out.println("Selected theater: " + (theater != null ? theater.getName() : "None"));
-        System.out.println("Selected movie: " + (movie != null ? movie.getTitle() : "None"));
-        System.out.println("Movie time: " + (movie != null ? movie.getTime() : "None"));  // Print the movie time
-        System.out.println("Selected seat: " + (seat != null ? ("Row: " + seat.getRow() + ", Seat: " + seat.getNumber()) : "None"));
+    public void print_booking_details() {
+        System.out.println("Selected theater: " + (theater != null ? theater.get_name() : "None"));
+        System.out.println("Selected movie: " + (movie != null ? movie.get_title() : "None"));
+        System.out.println("Movie time: " + (movie != null ? movie.get_time() : "None"));  // Print the movie time
+        System.out.println("Selected seat: " + (seat != null ? ("Row: " + seat.get_row() + ", Seat: " + seat.get_number()) : "None"));
     }
 }

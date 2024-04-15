@@ -5,57 +5,52 @@ public class Movie {
     private String genre;
     private int duration;
     private double price;
-    private String time; // The time the movie is showing
+    private String time;
 
-    // Constructor
     public Movie(String title, String genre, int duration, double price, String time) {
         this.title = title;
         this.genre = genre;
         this.duration = duration;
         this.price = price;
-        this.time = time; // Set the time
+        this.time = time;
     }
-    // Getter
-    public String getTime() {
+    public String get_time() {
         return time;
     }
 
-    // Setter
-    public void setTime(String time) {
+    public void set_time(String time) {
         this.time = time;
     }
 
-    // Getters
-    public String getTitle() {
+    public String get_title() {
         return title;
     }
 
-    public String getGenre() {
+    public String get_genre() {
         return genre;
     }
 
-    public int getDuration() {
+    public int get_duration() {
         return duration;
     }
 
-    public double getPrice() {
+    public double get_price() {
         return price;
     }
 
-    // Setters
-    public void setTitle(String title) {
+    public void set_title(String title) {
         this.title = title;
     }
 
-    public void setGenre(String genre) {
+    public void set_genre(String genre) {
         this.genre = genre;
     }
 
-    public void setDuration(int duration) {
+    public void set_duration(int duration) {
         this.duration = duration;
     }
 
-    public void setPrice(double price) {
+    public void set_price(double price) {
         this.price = price;
     }
 }

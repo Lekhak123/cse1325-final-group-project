@@ -1,63 +1,59 @@
 package movieticketing;
-
-
 import java.util.ArrayList;
+
 public class Theater {
     private String name;
     private ArrayList < Seat > seats;
     private ArrayList < Movie > movies;
 
-    // Constructor
     public Theater(String name) {
         this.name = name;
         this.seats = new ArrayList <> ();
         this.movies = new ArrayList <> ();
     }
-    public void addMovie(Movie movie) {
+    public void add_movie(Movie movie) {
         movies.add(movie);
     }
-    public void addSeat(Seat seat) {
+    public void add_seat(Seat seat) {
         seats.add(seat);
     }
-    public boolean bookSeat(int rowNumber, int seatNumber) {
+    public boolean book_seat(int rowNumber, int seatNumber) {
         for (Seat seat : seats) {
-            if (seat.getRow() == rowNumber && seat.getNumber() == seatNumber && !seat.isBooked()) {
-                seat.setBooked(true);
+            if (seat.get_row() == rowNumber && seat.get_number() == seatNumber && !seat.isBooked()) {
+                seat.set_booked(true);
                 return true;
             }
         }
         return false;
     }
-    public void printAvailableSeats() {
+    public void print_available_seats() {
         for (Seat seat : seats) {
             if (!seat.isBooked()) {
-                System.out.println("Row: " + seat.getRow() + ", Seat: " + seat.getNumber());
+                System.out.println("Row: " + seat.get_row() + ", Seat: " + seat.get_number());
             }
         }
     }
-    // Getters
-    public String getName() {
+    public String get_name() {
         return name;
     }
 
-    public ArrayList < Seat > getSeats() {
+    public ArrayList < Seat > get_sears() {
         return seats;
     }
 
-    public ArrayList < Movie > getMovies() {
+    public ArrayList < Movie > get_movies() {
         return movies;
     }
 
-    // Setters
-    public void setName(String name) {
+    public void set_name(String name) {
         this.name = name;
     }
 
-    public void setSeats(ArrayList < Seat > seats) {
+    public void set_seats(ArrayList < Seat > seats) {
         this.seats = seats;
     }
 
-    public void setMovies(ArrayList < Movie > movies) {
+    public void set_movies(ArrayList < Movie > movies) {
         this.movies = movies;
     }
 }

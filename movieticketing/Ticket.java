@@ -1,41 +1,37 @@
 package movieticketing;
 
-// No changes needed for the import statements
 public class Ticket {
     private Movie movie;
     private Seat seat;
     private User user;
 
-    // Constructor
     public Ticket(Movie movie, Seat seat, User user) {
         this.movie = movie;
         this.seat = seat;
         this.user = user;
     }
 
-    // Getters
-    public Movie getMovie() {
+    public Movie get_movie() {
         return movie;
     }
 
-    public Seat getSeat() {
+    public Seat get_sear() {
         return seat;
     }
 
-    public User getUser() {
+    public User get_user() {
         return user;
     }
 
-    // Setters
-    public void setMovie(Movie movie) {
+    public void set_movie(Movie movie) {
         this.movie = movie;
     }
 
-    public void setSeat(Seat seat) {
+    public void set_seat(Seat seat) {
         this.seat = seat;
     }
 
-    public void setUser(User user) {
+    public void set_user(User user) {
         this.user = user;
     }
 }
