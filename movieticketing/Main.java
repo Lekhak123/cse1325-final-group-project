@@ -14,28 +14,31 @@ import java.util.Scanner;
 public class Main {
     private ArrayList < Theater > theaters;
     private ArrayList < User > users;
-    private Theater currentTheater;
+    private Theater current_theater;
     private Movie currentMovie;
-    private ArrayList<Seat> seats;  // The list of seats in the theater
-    private Seat currentSeat;  // The seat that the user has selected
+    // The list of seats in the theater
+    private ArrayList<Seat> seats;
+    // The seat that the user has selected
+    private Seat currentSeat;
 
     public Main() {
         theaters = new ArrayList <> ();
         users = new ArrayList <> ();
-        loadInitialData();
+        load_initial_data();
     }
-    private void loadInitialData() {
+    private void load_initial_data() {
         try (Scanner scanner = new Scanner(new File("movieticketing/initial_data.txt"))) {
-            Theater currentTheater = null;
+            Theater current_theater = null;
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 if (line.trim().isEmpty()) {
-                    continue;  // Skip empty lines
+                    // Skip empty lines
+                    continue;
                 }
                 if (!line.contains(",")) {
-                    // This line is a theater name
-                    currentTheater = new Theater(line);
-                    theaters.add(currentTheater);
+                    // This line is a theater name. Note: we are using the token "," to differentiate between a theater, seat, and a movie
+                    current_theater = new Theater(line);
+                    theaters.add(current_theater);
                 } else {
                     String[] parts = line.split(",");
                     if (parts.length == 5) {
@@ -44,15 +47,15 @@ public class Main {
                         String genre = parts[1];
                         int duration = Integer.parseInt(parts[2]);
                         double price = Double.parseDouble(parts[3]);
-                        String time = parts[4];  // Get the time
+                        String time = parts[4];
                         Movie movie = new Movie(title, genre, duration, price, time);
-                        currentTheater.addMovie(movie);  // Add the movie to the current theater
+                        current_theater.add_movie(movie);
                     } else if (parts.length == 3) {
                         // This line is a seat
                         int row = Integer.parseInt(parts[0]);
                         int number = Integer.parseInt(parts[1]);
                         boolean booked = Boolean.parseBoolean(parts[2]);
-                        currentTheater.addSeat(new Seat(row, number, booked));
+                        current_theater.add_seat(new Seat(row, number, booked));
                     }
                 }
             }
@@ -66,78 +69,76 @@ public class Main {
             while (true) {
                 System
                     .out
-                    .println("1. Select a theater");
+                    .println("1. Select a theater:");
                 System
                     .out
-                    .println("2. Select a movie");
+                    .println("2. Select a movie:");
                 System
                     .out
-                    .println("3. Book a seat");
+                    .println("3. Book a seat:");
                 System
                     .out
-                    .println("4. Confirm booking");
+                    .println("4. Confirm booking:");
                 System
                     .out
-                    .println("5. Exit");
+                    .println("5. Exit:");
                 System
                     .out
                     .print("Enter your choice: ");
                 int choice = scanner.nextInt();
-                scanner.nextLine(); // consume newline left-over
+                scanner.nextLine();
                 switch (choice) {
                     case 1:
-                        // Display all theaters and let the user select one
+                        // Display all theaters and let the user select one of them
                         for (int i = 0; i < theaters.size(); i++) {
                             System
                                 .out
-                                .println((i + 1) + ". " + theaters.get(i).getName());
+                                .println((i + 1) + ". " + theaters.get(i).get_name());
                         }
                         System
                             .out
                             .print("Select a theater: ");
-                        int theaterChoice = scanner.nextInt() - 1;
-                        currentTheater = theaters.get(theaterChoice);
+                        int theater_choice = scanner.nextInt() - 1;
+                        current_theater = theaters.get(theater_choice);
                         break;
                     case 2:
-                        // Display all movies in the selected theater and let the user select one
-                        if (currentTheater == null) {
+                        // Display all movies in the selected theater and let the user select one of them
+                        if (current_theater == null) {
                             System
                                 .out
-                                .println("Please select a theater first.");
+                                .println("Please select a theater first!");
                             break;
                         }
-                        for (int i = 0; i < currentTheater.getMovies().size(); i++) {
+                        for (int i = 0; i < current_theater.get_movies().size(); i++) {
                             System
                                 .out
-                                .println((i + 1) + ". " + currentTheater.getMovies().get(i).getTitle());
+                                .println((i + 1) + ". " + current_theater.get_movies().get(i).get_title());
                         }
-                        // Select a movie...
                         int movieNumber = 0;
                         while (true) {
                             System.out.print("Select a movie: ");
                             if (scanner.hasNextInt()) {
                                 movieNumber = scanner.nextInt();
-                                if (movieNumber >= 1 && movieNumber <= currentTheater.getMovies().size()) {
+                                if (movieNumber >= 1 && movieNumber <= current_theater.get_movies().size()) {
                                     break;
                                 } else {
-                                    System.out.println("Invalid input. Please enter a number between 1 and " + currentTheater.getMovies().size() + ".");
+                                    System.out.println("Invalid input! Please enter a number between 1 and " + current_theater.get_movies().size() + ".");
                                 }
                             } else {
-                                System.out.println("Invalid input. Please enter an integer.");
-                                scanner.next();  // Discard the invalid input
+                                System.out.println("Invalid input! Please enter an integer.");
+                                scanner.next();
                             }
                         }
-                        currentMovie = currentTheater.getMovies().get(movieNumber - 1);
+                        currentMovie = current_theater.get_movies().get(movieNumber - 1);
                         break;
                     case 3:
-                     // Book a seat
-                        if (currentTheater == null) {
-                            System.out.println("Please select a theater first.");
+                        // Book a seat
+                        if (current_theater == null) {
+                            System.out.println("Please select a theater first!");
                             break;
                         }
-                        // Book a seat...
                         System.out.println("Available seats:");
-                        currentTheater.printAvailableSeats();
+                        current_theater.print_available_seats();
                         int rowNumber = 0;
                         int seatNumber = 0;
                         while (true) {
@@ -148,27 +149,28 @@ public class Main {
                                 seatNumber = scanner.nextInt();
                                 break;
                             } catch (InputMismatchException e) {
-                                System.out.println("Invalid input. Please enter an integer.");
-                                scanner.next();  // Discard the invalid input
+                                System.out.println("Invalid input! Please enter an integer.");
+                                scanner.next();
                             }
                         }
-                        if (currentTheater.bookSeat(rowNumber, seatNumber)) {
+                        if (current_theater.book_seat(rowNumber, seatNumber)) {
                             System.out.println("Seat booked successfully.");
-                            currentSeat = new Seat(rowNumber, seatNumber, true);  // Set the current seat to the seat that the user has booked
+                            // Set the current seat to the seat that the user has booked
+                            currentSeat = new Seat(rowNumber, seatNumber, true);
                         } else {
-                            System.out.println("Seat is already booked or does not exist.");
+                            System.out.println("Seat is already booked or does not exist!");
                         }
                         break;
                     case 4:
                         // View selected options
-                        if (currentTheater == null || currentMovie == null || currentSeat == null) {
+                        if (current_theater == null || currentMovie == null || currentSeat == null) {
                             System.out.println("Please complete all selections (theater, movie, seat) before viewing options.");
-                            Booking booking = new Booking(currentTheater, currentMovie, currentSeat);
-                            booking.printBookingDetails();
+                            Booking booking = new Booking(current_theater, currentMovie, currentSeat);
+                            booking.print_booking_details();
                         } else {
-                            Booking booking = new Booking(currentTheater, currentMovie, currentSeat);
+                            Booking booking = new Booking(current_theater, currentMovie, currentSeat);
                             System.out.println("\nBooking details: \n");
-                            booking.printBookingDetails();
+                            booking.print_booking_details();
                             return;
                         }
                         break;
@@ -180,7 +182,7 @@ public class Main {
                     default:
                         System
                             .out
-                            .println("Invalid choice. Please try again.");
+                            .println("Invalid choice! Please try again.");
                 }
             }
         }

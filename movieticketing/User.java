@@ -1,35 +1,31 @@
 package movieticketing;
-
-
 import java.util.ArrayList;
+
 public class User {
     private String name;
     private ArrayList<Ticket> tickets;
 
-    // Constructor
     public User(String name) {
         this.name = name;
         this.tickets = new ArrayList<>();
     }
 
-    // Getters
-    public String getName() {
+    public String get_name() {
         return name;
     }
 
-    public ArrayList<Ticket> getTickets() {
+    public ArrayList<Ticket> get_tickets() {
         return tickets;
     }
 
-    // Setters
-    public void setName(String name) {
+    public void set_name(String name) {
         this.name = name;
     }
 
-    public void setTickets(ArrayList<Ticket> tickets) {
+    public void set_tickets(ArrayList<Ticket> tickets) {
         this.tickets = tickets;
     }
-    public void bookTicket(Ticket ticket) {
+    public void book_ticket(Ticket ticket) {
         tickets.add(ticket);
     }
 }
