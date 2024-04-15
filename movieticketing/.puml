@@ -1,0 +1,45 @@
+@startuml
+class Main {
+    -ArrayList<Theater> theaters
+    -ArrayList<User> users
+    -Theater current_theater
+    -Movie currentMovie
+    -ArrayList<Seat> seats
+    -Seat currentSeat
+}
+
+class Theater {
+    -String name
+    -ArrayList<Seat> seats
+    -ArrayList<Movie> movies
+}
+
+class Movie {
+    -String title
+    -String genre
+    -int duration
+    -double price
+    -String time
+}
+
+class Seat {
+    -int row
+    -int number
+    -boolean booked
+}
+
+class Booking {
+    -Theater theater
+    -Movie movie
+    -Seat seat
+}
+
+
+
+Main --> Theater
+Main --> Movie
+Main --> Seat
+Booking --> Theater
+Booking --> Movie
+Booking --> Seat
+@enduml
