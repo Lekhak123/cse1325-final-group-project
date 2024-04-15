@@ -29,8 +29,8 @@ Traditional movie ticketing systems often involve manual processes, such as purc
 
 ## Proposed Model Diagram UML
 
-![UML Diagram](out/movieticketing/diagram.png)
-for image see out/movieticketing/diagram.png
+![UML Diagram](out/movieticketing/uml.png)
+
 
 ## Project Specification/ Function Modules
 
