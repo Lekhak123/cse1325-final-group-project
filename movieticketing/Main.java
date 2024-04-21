@@ -91,14 +91,16 @@ public class Main {
                     case 1:
                         // Display all theaters and let the user select one of them
                         for (int i = 0; i < theaters.size(); i++) {
-                            System
-                                .out
-                                .println((i + 1) + ". " + theaters.get(i).get_name());
+                            System.out.println((i + 1) + ". " + theaters.get(i).get_name());
                         }
-                        System
-                            .out
-                            .print("Select a theater: ");
-                        int theater_choice = scanner.nextInt() - 1;
+                        int theater_choice = -1;
+                        while (theater_choice < 0 || theater_choice >= theaters.size()) {
+                            System.out.print("Select a theater: ");
+                            theater_choice = scanner.nextInt() - 1;
+                            if (theater_choice < 0 || theater_choice >= theaters.size()) {
+                                System.out.println("Invalid choice. Please select a valid theater.");
+                            }
+                        }
                         current_theater = theaters.get(theater_choice);
                         break;
                     case 2:
@@ -147,7 +149,12 @@ public class Main {
                                 rowNumber = scanner.nextInt();
                                 System.out.print("Enter seat number: ");
                                 seatNumber = scanner.nextInt();
-                                break;
+
+                                if (current_theater.seat_exists(rowNumber, seatNumber)) {
+                                    break;
+                                } else {
+                                    System.out.println("Seat does not exist! Please enter a valid row and seat number.");
+                                }
                             } catch (InputMismatchException e) {
                                 System.out.println("Invalid input! Please enter an integer.");
                                 scanner.next();

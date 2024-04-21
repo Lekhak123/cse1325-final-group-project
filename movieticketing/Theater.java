@@ -15,6 +15,12 @@ public class Theater {
         movies.add(movie);
     }
     public void add_seat(Seat seat) {
+        for (Seat existingSeat : seats) {
+            if (existingSeat.get_row() == seat.get_row() && existingSeat.get_number() == seat.get_number()) {
+                // This seat already exists, so we don't add it again
+                return;
+            }
+        }
         seats.add(seat);
     }
     public boolean book_seat(int rowNumber, int seatNumber) {
@@ -35,6 +41,14 @@ public class Theater {
     }
     public String get_name() {
         return name;
+    }
+    public boolean seat_exists(int rowNumber, int seatNumber) {
+        for (Seat seat : seats) {
+            if (seat.get_row() == rowNumber && seat.get_number() == seatNumber) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public ArrayList < Seat > get_sears() {

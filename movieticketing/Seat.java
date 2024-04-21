@@ -5,7 +5,7 @@ public class Seat {
     private int number;
     private boolean isBooked;
 
-    public Seat(int number, int row, boolean booked) {
+    public Seat(int row, int number, boolean booked) {
         this.number = number;
         this.row = row;
         this.isBooked = booked;
